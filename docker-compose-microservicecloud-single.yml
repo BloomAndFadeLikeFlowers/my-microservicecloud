@@ -1,0 +1,65 @@
+version: '2'
+services:
+  microservicecloud-eureka-single:
+    image: study/microservicecloud-eureka:latest
+    environment:
+      TZ: Asia/Shanghai
+      port: 7000
+      eureka_hostname: myeureka00.com
+      spring.profiles.active: docker
+      eureka_service_url: http://myeureka00.com:7000/eureka/
+    ports:
+      - "7000:7000"
+    volumes:
+      - /etc/hosts:/etc/hosts
+      - /data/logs:/data/logs
+      - /etc/localtime:/etc/localtime
+
+  microservicecloud-provider-single:
+    image: study/microservicecloud-provider:latest
+    environment:
+      TZ: Asia/Shanghai
+      port: 9000
+      spring.profiles.active: docker
+      jdbc_url: jdbc:mysql://192.168.110.170:3306/cloudDB01
+      jdbc_usernamel: root
+      jdbc_password: 123456
+      eureka_service_url: http://myeureka00.com:7000/eureka/
+    ports:
+      - "9000:9000"
+    volumes:
+      - /etc/hosts:/etc/hosts
+      - /data/logs:/data/logs
+      - /etc/localtime:/etc/localtime
+
+
+  microservicecloud-consumer-single:
+    image: study/microservicecloud-consumer:latest
+    environment:
+      TZ: Asia/Shanghai
+      port: 8000
+      spring.profiles.active: docker
+      eureka_service_url: http://myeureka00.com:7000/eureka/
+    ports:
+      - "8000:8000"
+    volumes:
+      - /etc/hosts:/etc/hosts
+      - /data/logs:/data/logs
+      - /etc/localtime:/etc/localtime
+
+
+
+  microservicecloud-zuul-gateway-single:
+    image: study/microservicecloud-zuul-gateway:latest
+    environment:
+      TZ: Asia/Shanghai
+      port: 9527
+      spring.profiles.active: docker
+      eureka_service_url: http://myeureka00.com:7000/eureka/
+    ports:
+      - "9527:9527"
+    volumes:
+      - /etc/hosts:/etc/hosts
+      - /data/logs:/data/logs
+      - /etc/localtime:/etc/localtime
+
