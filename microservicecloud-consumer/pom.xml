@@ -5,10 +5,17 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>microservicecloud-common</artifactId>
-    <name>microservicecloud-common</name>
-    <packaging>jar</packaging>
+    <parent>
+        <artifactId>my-microservicecloud</artifactId>
+        <groupId>com.atguigu.springcloud</groupId>
+        <version>0.0.1-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+    <artifactId>microservicecloud-consumer</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <name>microservicecloud-consumer</name>
+    <description>Demo project for Spring Boot</description>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -16,7 +23,11 @@
     </properties>
 
     <dependencies>
-
+        <!-- 私有部分-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
 
     </dependencies>
 
@@ -32,7 +43,13 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
