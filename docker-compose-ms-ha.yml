@@ -1,7 +1,7 @@
 version: '2'
 services:
-  microservicecloud-eureka-ha1:
-    image: study/microservicecloud-eureka:latest
+  ms-eureka-ha1:
+    image: study/ms-eureka:latest
     environment:
       TZ: Asia/Shanghai
       port: 7001
@@ -15,8 +15,8 @@ services:
       - /data/logs:/data/logs
       - /etc/localtime:/etc/localtime
 
-  microservicecloud-eureka-ha2:
-    image: study/microservicecloud-eureka:latest
+  ms-eureka-ha2:
+    image: study/ms-eureka:latest
     environment:
       TZ: Asia/Shanghai
       port: 7002
@@ -30,8 +30,8 @@ services:
       - /data/logs:/data/logs
       - /etc/localtime:/etc/localtime
 
-  microservicecloud-provider-h1:
-    image: study/microservicecloud-provider:latest
+  ms-provider-h1:
+    image: study/ms-provider:latest
     environment:
       TZ: Asia/Shanghai
       port: 9001
@@ -47,8 +47,8 @@ services:
       - /data/logs:/data/logs
       - /etc/localtime:/etc/localtime
 
-  microservicecloud-provider-h2:
-    image: study/microservicecloud-provider:latest
+  ms-provider-h2:
+    image: study/ms-provider:latest
     environment:
       TZ: Asia/Shanghai
       port: 9002
@@ -64,8 +64,8 @@ services:
       - /data/logs:/data/logs
       - /etc/localtime:/etc/localtime
 
-  microservicecloud-consumer-ha1:
-    image: study/microservicecloud-consumer:latest
+  ms-consumer-ha1:
+    image: study/ms-consumer:latest
     environment:
       TZ: Asia/Shanghai
       port: 8001
@@ -77,8 +77,8 @@ services:
       - /etc/hosts:/etc/hosts
       - /data/logs:/data/logs
       - /etc/localtime:/etc/localtime
-  microservicecloud-consumer-ha2:
-    image: study/microservicecloud-consumer:latest
+  ms-consumer-ha2:
+    image: study/ms-consumer:latest
     environment:
       TZ: Asia/Shanghai
       port: 8002
@@ -91,8 +91,8 @@ services:
       - /data/logs:/data/logs
       - /etc/localtime:/etc/localtime
       
-  microservicecloud-zuul-gateway-ha1:
-    image: study/microservicecloud-zuul-gateway:latest
+  ms-gateway-ha1:
+    image: study/ms-gateway:latest
     environment:
       TZ: Asia/Shanghai
       port: 9527
@@ -105,8 +105,8 @@ services:
       - /data/logs:/data/logs
       - /etc/localtime:/etc/localtime
 
-  microservicecloud-zuul-gateway-ha2:
-    image: study/microservicecloud-zuul-gateway:latest
+  ms-gateway-ha2:
+    image: study/ms-gateway:latest
     environment:
       TZ: Asia/Shanghai
       port: 9528

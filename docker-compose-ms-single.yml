@@ -1,7 +1,7 @@
 version: '2'
 services:
-  microservicecloud-eureka-single:
-    image: study/microservicecloud-eureka:latest
+  ms-eureka-single:
+    image: study/ms-eureka:latest
     environment:
       TZ: Asia/Shanghai
       port: 7000
@@ -16,8 +16,8 @@ services:
       - /data/logs:/data/logs
       - /etc/localtime:/etc/localtime
 
-  microservicecloud-provider-single:
-    image: study/microservicecloud-provider:latest
+  ms-provider-single:
+    image: study/ms-provider:latest
     environment:
       TZ: Asia/Shanghai
       port: 9000
@@ -35,8 +35,8 @@ services:
       - /etc/localtime:/etc/localtime
 
 
-  microservicecloud-consumer-single:
-    image: study/microservicecloud-consumer:latest
+  ms-consumer-single:
+    image: study/ms-consumer:latest
     environment:
       TZ: Asia/Shanghai
       port: 8000
@@ -52,8 +52,8 @@ services:
 
 
 
-  microservicecloud-zuul-gateway-single:
-    image: study/microservicecloud-zuul-gateway:latest
+  ms-gateway-single:
+    image: study/ms-gateway:latest
     environment:
       TZ: Asia/Shanghai
       port: 9527
