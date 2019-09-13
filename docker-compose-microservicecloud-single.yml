@@ -8,6 +8,7 @@ services:
       eureka_hostname: myeureka00.com
       spring.profiles.active: docker
       eureka_service_url: http://myeureka00.com:7000/eureka/
+      COLLECTOR_IP: 192.168.110.170
     ports:
       - "7000:7000"
     volumes:
@@ -25,6 +26,7 @@ services:
       jdbc_usernamel: root
       jdbc_password: 123456
       eureka_service_url: http://myeureka00.com:7000/eureka/
+      COLLECTOR_IP: 192.168.110.170
     ports:
       - "9000:9000"
     volumes:
@@ -40,6 +42,7 @@ services:
       port: 8000
       spring.profiles.active: docker
       eureka_service_url: http://myeureka00.com:7000/eureka/
+      COLLECTOR_IP: 192.168.110.170
     ports:
       - "8000:8000"
     volumes:
@@ -56,6 +59,7 @@ services:
       port: 9527
       spring.profiles.active: docker
       eureka_service_url: http://myeureka00.com:7000/eureka/
+      COLLECTOR_IP: 192.168.110.170
     ports:
       - "9527:9527"
     volumes:

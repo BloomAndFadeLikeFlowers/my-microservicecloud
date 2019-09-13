@@ -38,7 +38,7 @@
 
 
     <build>
-        <finalName>${artifactId}-${version}</finalName>
+        <finalName>${artifactId}</finalName>
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
